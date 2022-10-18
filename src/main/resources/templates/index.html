@@ -10,6 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <h1>Listado de clientes</h1>
+        <header th:replace="layout/plantilla :: header" />
         <br>
         <a th:href="@{/nuevoCliente}">Nuevo Cliente</a>
         <br>
@@ -37,8 +38,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </tbody>
             </table>
         </div>  
+        
         <div th:if="${clientes == null or clientes.empty}">
             La lista de clientes esta vacia
         </div>
+        
+        <footer th:replace ="layout/plantilla :: footer" />
+        
     </body>
 </html>
