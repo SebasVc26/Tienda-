@@ -13,4 +13,8 @@ public interface ArticuloService {
     public void save(Articulo articulo);
     
     public void delete(Articulo articulo);
+    
+    public List<Articulo> getPorExistencias(int existencias);
+    
+    public List<Articulo> getPorExistenciasCateogrias(int existencias, Long idCategoria);
 }

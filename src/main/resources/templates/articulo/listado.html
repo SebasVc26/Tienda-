@@ -1,15 +1,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>TechShop</title>
         <meta charset="UTF-8">
+        <link href="../../static.css" rel="stylesheet" type="text/css"/>
     </head>
-   <body>
+    <body>
         <h1>Listado de articulos</h1>
         <header th:replace="layout/plantilla :: header" />
         <div class="contenido">
             <h2>Listado de Articulos</h2>
-<a th:href="@{/articulo/nuevo}">Nuevo Articulo</a>
-
+            <a th:href="@{/articulo/nuevo}">Nuevo Articulo</a>
             <div th:if="${articulos != null and !articulos.empty}">
                 <table border="1">
                     <thead>
@@ -18,6 +18,8 @@
                             <th>Precio</th>
                             <th>Existencias</th>
                             <th>Activo</th>
+                            <th>Modificar</th>
+                            <th>Eliminar</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -39,3 +41,4 @@
         <footer th:replace ="layout/plantilla :: footer" />
     </body>
 </html>
+ 

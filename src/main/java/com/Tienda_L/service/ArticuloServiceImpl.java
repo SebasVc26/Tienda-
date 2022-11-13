@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ArticuloServiceImpl implements ArticuloService {
+ public class ArticuloServiceImpl implements ArticuloService {
 
     @Autowired
     ArticuloDao articuloDao;
@@ -36,4 +36,14 @@ public class ArticuloServiceImpl implements ArticuloService {
     public void delete(Articulo articulo) {
         articuloDao.delete(articulo);
     }   
+
+    @Override
+    public List<Articulo> getPorExistencias(int existencias) {
+        return articuloDao.findByExistencias(existencias);
+    }
+
+    @Override
+    public List<Articulo> getPorExistenciasCateogrias(int existencias, Long idCategoria) {
+        return articuloDao.findByExistenciasAndIdCategoria(existencias, idCategoria);
+    }
 }

@@ -23,7 +23,11 @@
                                 th:value="${categoria.descripcion}"/>
                     </select>
 
-                    <label for="nombre">Nombre: </label>
+                    <label for="nombre">Descripcion: </label>
+                    <input type="text" name="descripcion" th:field="*{nombre}" />
+                    <br>
+                    
+                   <!-- <label for="nombre">Nombre: </label>
                     <input type="text" name="nombre" th:field="*{nombre}" />
                     <br>
                     <label for="apellidos">Apellidos: </label>
@@ -36,7 +40,7 @@
                     <input type="tel" name="tel" th:field="*{telefono}" />
                     <label for="limite">Limite: </label>
                     <input type="number" name="limite" th:field="*{credito.limite}" />
-                    <br>
+                    <br> -->
                     <input type="submit" name="Guardar" value="Guadar" />
                 </form>
             </div>
