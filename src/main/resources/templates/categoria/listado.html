@@ -5,33 +5,32 @@
         <link href="../../static.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Listado de categorias</h1>
         <header th:replace="layout/plantilla :: header" />
         <div class="contenido">
-            <h2>Listado de Categoria</h2>
-            <a th:href="@{/categoria/nuevo}">Nueva Categoria</a>
+            <h2>[[#{categoria.titulo}]]</h2>
+            <a th:href="@{/categoria/nuevo}">[[#{categoria.nuevo}]]</a>
             <div th:if="${categorias != null and !categorias.empty}">
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>Descripcion</th>             
-                            <th>Activo</th>
-                            <th>Modificar</th>
-                            <th>Eliminar</th>
+                            <th>[[#{categoria.descripcion}]]</th>             
+                            <th>[[#{categoria.activo}]]</th>
+                            <th>[[#{accion.actualizar}]]</th>
+                            <th>[[#{accion.eliminar}]]</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="item : ${categorias}">
                             <td th:text="${item.descripcion}"></td>
                             <td><input type="checkbox" name="activo" th:checked="${item.activo}"disabled /></td>
-                            <td><a th:href="@{/categoria/modificar/} + ${item.idArticulo}">Modificar</a></td>
-                            <td><a th:href="@{/categoria/eliminar/} + ${item.idArticulo}">Eliminar</a></td>
+                            <td><a th:href="@{/categoria/modificar/} + ${item.idArticulo}">[[#{accion.actualizar}]]</a></td>
+                            <td><a th:href="@{/categoria/eliminar/} + ${item.idArticulo}">[[#{accion.eliminar}]]</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>  
             <div th:if="${categorias == null or categorias.empty}">
-                La lista de categorias esta vacia
+                <p th:text="#{articulo.no_mostrar}"> No mostrar items</p>
             </div>
         </div>
         <footer th:replace ="layout/plantilla :: footer" />

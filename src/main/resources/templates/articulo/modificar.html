@@ -8,40 +8,38 @@
         <body>
             <header th:replace="layout/plantilla :: header" />
             <div class="contenido">
-                <h2>Datos del Articulo</h2>
-                <a th:href="@{/articulo/listado}">Regresar</a>
+                <h2>[[#{articulo.datos}]]</h2>
+                <a th:href="@{/articulo/listado}" th:text="#{accion.regresar}">Regresar</a>
                 </br>
                 </br>
                 <form th:action="@{/articulo/guardar}"
                       method="post"
                       th:object="${articulo}">
+                    
                     <input type="hidden" name="idArticulo" th:field="*{idCliente}"/>
-                    <label for="categoria">Categoria:</label>
+                    <label for="categoria" th:text="#{articulo.categoria}">Categoria:</label>
                     <select th:field="*{idCategoria}">
                         <option th:each="categoria : ${categorias}"
                                 th:value="${categoria.idCategoria}"
                                 th:value="${categoria.descripcion}"/>
                     </select>
 
-                    <label for="nombre">Descripcion: </label>
-                    <input type="text" name="descripcion" th:field="*{nombre}" />
+                    <label for="descripcion" th:text="#{articulo.descripcion}">Descripcion: </label>
+                    <input type="text" name="descripcion" th:field="*{descripcion}" />
                     <br>
-                    
-                   <!-- <label for="nombre">Nombre: </label>
-                    <input type="text" name="nombre" th:field="*{nombre}" />
+                   <label for="detalle" th:text="#{articulo.detalle}">Detalle: </label>
+                    <input type="text" name="detalle" th:field="*{detalle}" />
                     <br>
-                    <label for="apellidos">Apellidos: </label>
-                    <input type="text" name="apellidos" th:field="*{apellidos}" />
+                    <label for="precio" th:text="#{articulo.precio}">Precio: </label>
+                    <input type="text" name="precio" th:field="*{precio}" />
                     <br>
-                    <label for="correo">Correo: </label>
-                    <input type="email" name="correo" th:field="*{correo}" />
+                    <label for="existencias" th:text="#{articulo.existencias}">Existencias: </label>
+                    <input type="email" name="existencias" th:field="*{existencias}" />
                     <br>
-                    <label for="tel">Teléfono: </label>
-                    <input type="tel" name="tel" th:field="*{telefono}" />
-                    <label for="limite">Limite: </label>
-                    <input type="number" name="limite" th:field="*{credito.limite}" />
-                    <br> -->
-                    <input type="submit" name="Guardar" value="Guadar" />
+                    <label for="activo" th:text="#{articulo.activo}">Activo: </label>
+                    <input type="checkbox" name="activo" th:field="*{activo}" />
+                    <br> 
+                    <input type="submit" name="Guardar" th:value="#{accion.guadar}" />
                 </form>
             </div>
             <footer th:replace ="layout/plantilla :: footer" />
