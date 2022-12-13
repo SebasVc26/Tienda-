@@ -7,8 +7,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
-public class SecurityConfig {
-
     @Configuration
     @EnableWebSecurity
     public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -53,4 +51,4 @@ public class SecurityConfig {
                     .exceptionHandling().accessDeniedPage("/errores/403");
         }
    }
-}
+
